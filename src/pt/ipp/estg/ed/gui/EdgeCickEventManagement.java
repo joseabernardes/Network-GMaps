@@ -36,6 +36,9 @@ import pt.ipp.estg.ed.map.mapPoint.MapPoint;
  */
 //1. versao facil da experimtal
 
+//versao mais dificil
+//2. versão ainda mais dificil agora do master
+
 public class EdgeCickEventManagement implements UIEventHandler {
 
     private final MapPoint store1, store2;
