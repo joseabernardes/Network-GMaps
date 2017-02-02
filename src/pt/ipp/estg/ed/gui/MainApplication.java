@@ -90,7 +90,7 @@ public class MainApplication extends Application implements MapComponentInitiali
         list = new DoubleLinkedUnorderedList<MapPoint>();
         start = new Button("Iniciar Nova Rota_");
         start.setOnAction(this);
-        calcular = new Button("Calcular Rota");
+        calcular = new Button("Calcular Rota_");
         calcular.setOnAction(this);
         config = new Button("", new ImageView(new Image("/config.png")));
         config.setOnAction(this);
