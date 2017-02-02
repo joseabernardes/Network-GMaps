@@ -66,6 +66,7 @@ public class EdgeCickEventManagement implements UIEventHandler {
 
                     network.removeEdge(store1, store2);
                     network.addEdge(store1, store2, distance, time);
+                    //commit
                 }
 
                 if (dialog.removeTwoPressed) { // Se foi removido é porque não foi alterado!
@@ -169,35 +170,29 @@ public class EdgeCickEventManagement implements UIEventHandler {
         public boolean isEditOnePressed() {
             return editOnePressed;
         }
-
         public boolean isEditTwoPressed() {
             return editTwoPressed;
         }
-
         public boolean isRemoveOnePressed() {
             return removeOnePressed;
         }
-
         public boolean isRemoveTwoPressed() {
             return removeTwoPressed;
         }
-
         public String getDistanceFieldOne() {
             return distanceFieldOne.getText();
         }
-
         public String getTimeFieldOne() {
             return timeFieldOne.getText();
         }
-
         public String getDistanceFieldTwo() {
             return distanceFieldTwo.getText();
         }
-
         public String getTimeFieldTwo() {
             return timeFieldTwo.getText();
         }
-
+        
+        
         @Override
         public void handle(ActionEvent event) {
             if (event.getSource() == editOne) {
@@ -215,7 +210,6 @@ public class EdgeCickEventManagement implements UIEventHandler {
 
                 removeOnePressed = true;
                 editOne.setDisable(true);
-//                    network.removeEdge(store1, store2);
                 distanceFieldOne.setText("0");
                 timeFieldOne.setText("0");
                 super.getDialogPane().lookupButton(ButtonType.APPLY).setDisable(false);
@@ -223,7 +217,6 @@ public class EdgeCickEventManagement implements UIEventHandler {
             } else if (event.getSource() == removeTwo) {
                 removeTwoPressed = true;
                 editTwo.setDisable(true);
-//                    network.removeEdge(store2, store1);
                 distanceFieldTwo.setText("0");
                 timeFieldTwo.setText("0");
                 super.getDialogPane().lookupButton(ButtonType.APPLY).setDisable(false);
