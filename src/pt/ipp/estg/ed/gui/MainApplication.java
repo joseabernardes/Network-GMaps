@@ -88,7 +88,7 @@ public class MainApplication extends Application implements MapComponentInitiali
         mainStage = stage;
         network = GraphCSVReader.readGraph("GraphVertex.csv", "GraphEdges.csv");
         list = new DoubleLinkedUnorderedList<MapPoint>();
-        start = new Button("Iniciar Nova Rota");
+        start = new Button("Iniciar Nova Rota_");
         start.setOnAction(this);
         calcular = new Button("Calcular Rota");
         calcular.setOnAction(this);
