@@ -34,6 +34,9 @@ import pt.ipp.estg.ed.map.mapPoint.MapPoint;
  *
  * @author José Bernardes
  */
+
+
+//versao mais dificil
 public class EdgeCickEventManagement implements UIEventHandler {
 
     private final MapPoint store1, store2;
@@ -191,8 +194,6 @@ public class EdgeCickEventManagement implements UIEventHandler {
         public String getTimeFieldTwo() {
             return timeFieldTwo.getText();
         }
-        
-        
         @Override
         public void handle(ActionEvent event) {
             if (event.getSource() == editOne) {
