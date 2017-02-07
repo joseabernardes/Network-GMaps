@@ -17,7 +17,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -34,8 +36,6 @@ import pt.ipp.estg.ed.map.mapPoint.MapPoint;
  *
  * @author José Bernardes
  */
-
-
 //versao mais dificil
 //2. versão ainda mais dificil agora do master
 public class EdgeCickEventManagement implements UIEventHandler {
@@ -91,8 +91,10 @@ public class EdgeCickEventManagement implements UIEventHandler {
 
         private final TextField distanceFieldOne, timeFieldOne;
         private final TextField distanceFieldTwo, timeFieldTwo;
-        private final Label titleOne, titleTwo, distance, time, cost;
+        private final Label titleOne, titleTwo, distance, time;
         private final Button removeOne, removeTwo, editOne, editTwo;
+        private final RadioButton aviaoOne, barcoOne, camiaoOne;
+        private final RadioButton aviaoTwo, barcoTwo, camiaoTwo;
         private boolean editOnePressed, editTwoPressed, removeOnePressed, removeTwoPressed;
 
         public EdgeDialog() {
@@ -117,16 +119,28 @@ public class EdgeCickEventManagement implements UIEventHandler {
             titleTwo.setFont(Font.font(null, FontWeight.NORMAL, 16));
             distance = new Label("Distancia:(Km)");
             time = new Label("Tempo:(min)");
-            cost = new Label("Custo:(€)");
-
+            aviaoOne = new RadioButton("Avião");
+            barcoOne = new RadioButton("Barco");
+            camiaoOne = new RadioButton("Camião");
+            ToggleGroup radioOne = new ToggleGroup();
+            radioOne.selectToggle(aviaoOne);
+            radioOne.selectToggle(barcoOne);
+            radioOne.selectToggle(camiaoOne);
+            aviaoTwo = new RadioButton("Avião");
+            barcoTwo = new RadioButton("Barco");
+            camiaoTwo = new RadioButton("Camião");
+            ToggleGroup radioTwo = new ToggleGroup();
+            radioTwo.selectToggle(aviaoTwo);
+            radioTwo.selectToggle(barcoTwo);
+            radioTwo.selectToggle(camiaoTwo);
             double distanceOne = network.getWeights(store1, store2, new Distance());
             double timeOne = 0;
-
             if (distanceOne == 0) {
                 editOne.setDisable(true);
                 removeOne.setDisable(true);
             } else {
                 timeOne = network.getWeights(store1, store2, new Time());
+                
             }
             distanceFieldOne = new TextField(Double.toString(distanceOne));
             distanceFieldOne.setDisable(true);
@@ -161,7 +175,6 @@ public class EdgeCickEventManagement implements UIEventHandler {
             grid.add(time, 0, 2);
             grid.add(timeFieldOne, 1, 2);
             grid.add(timeFieldTwo, 2, 2);
-            grid.add(cost, 0, 3);
 
             grid.add(removeOne, 1, 3);
             grid.add(editOne, 1, 4);
@@ -174,27 +187,35 @@ public class EdgeCickEventManagement implements UIEventHandler {
         public boolean isEditOnePressed() {
             return editOnePressed;
         }
+
         public boolean isEditTwoPressed() {
             return editTwoPressed;
         }
+
         public boolean isRemoveOnePressed() {
             return removeOnePressed;
         }
+
         public boolean isRemoveTwoPressed() {
             return removeTwoPressed;
         }
+
         public String getDistanceFieldOne() {
             return distanceFieldOne.getText();
         }
+
         public String getTimeFieldOne() {
             return timeFieldOne.getText();
         }
+
         public String getDistanceFieldTwo() {
             return distanceFieldTwo.getText();
         }
+
         public String getTimeFieldTwo() {
             return timeFieldTwo.getText();
         }
+
         @Override
         public void handle(ActionEvent event) {
             if (event.getSource() == editOne) {

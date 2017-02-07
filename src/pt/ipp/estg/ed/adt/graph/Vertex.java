@@ -6,6 +6,7 @@
 package pt.ipp.estg.ed.adt.graph;
 
 import java.util.Iterator;
+import pt.ipp.estg.ed.adt.graph.transport.Camiao;
 import pt.ipp.estg.ed.adt.graph.weight.Weight;
 import pt.ipp.estg.ed.adt.unorderedList.DoubleLinkedUnorderedList;
 import pt.ipp.estg.ed.adt.unorderedList.UnorderedListADT;
@@ -86,7 +87,7 @@ public class Vertex<T> implements Comparable<Vertex<T>> {
      * @param time time that takes to go from one to the other
      */
     public void addEdge(Vertex<T> linkVertex, Weight distance, Weight time) {
-        adjList.addToRear(new Edge(linkVertex, distance, time));
+        adjList.addToRear(new Edge(linkVertex, distance, time, new Camiao("Camião")));
     }
 
     /**
