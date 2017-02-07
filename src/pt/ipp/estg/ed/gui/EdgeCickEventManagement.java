@@ -43,6 +43,7 @@ public class EdgeCickEventManagement implements UIEventHandler {
     private final MapPoint store1, store2;
     private final NetworkADT<MapPoint> network;
     private final Stage mainStage;
+    private int rr = 1;
 
     public EdgeCickEventManagement(MapPoint store1, MapPoint store2, NetworkADT<MapPoint> network, Stage mainStage) {
         this.store1 = store1;
@@ -140,7 +141,7 @@ public class EdgeCickEventManagement implements UIEventHandler {
                 removeOne.setDisable(true);
             } else {
                 timeOne = network.getWeights(store1, store2, new Time());
-                
+
             }
             distanceFieldOne = new TextField(Double.toString(distanceOne));
             distanceFieldOne.setDisable(true);
