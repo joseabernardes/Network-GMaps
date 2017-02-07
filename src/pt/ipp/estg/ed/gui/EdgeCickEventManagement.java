@@ -42,6 +42,7 @@ public class EdgeCickEventManagement implements UIEventHandler {
 
     private final MapPoint store1, store2;
     private final NetworkADT<MapPoint> network;
+    public int aa = 2;
     private final Stage mainStage;
     private int rr = 1;
 
